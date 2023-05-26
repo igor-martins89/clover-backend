@@ -1,5 +1,7 @@
 package mlclover.appplication.services.admin.produtos;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import mlclover.appplication.dtos.admin.classificacoes.CategoriaDTO;
 import mlclover.appplication.dtos.admin.classificacoes.ColecaoDTO;
 import mlclover.appplication.dtos.admin.classificacoes.SubcategoriaDTO;
@@ -17,15 +19,20 @@ import mlclover.appplication.services.admin.classificacoes.ProdutoSubcategoriaSe
 import mlclover.appplication.services.admin.classificacoes.SubcategoriaService;
 import mlclover.appplication.services.exceptions.BadCredentialsException;
 import mlclover.appplication.services.exceptions.CategoriaSemAssociacaoException;
-import mlclover.appplication.services.exceptions.EntityAlreadyExistsException;
 import mlclover.appplication.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -48,6 +55,16 @@ public class ProdutoService {
 
     @Autowired
     ProdutoSubcategoriaService produtoSubcategoriaService;
+
+    @Autowired
+    CorProdutoService corProdutoService;
+
+    @Autowired
+    private AmazonS3 s3Client;
+
+    @Value("${application.bucket.name}")
+    private String bucketName;
+
 
     public List<Produto> buscaListaProdutosPorId(List<Integer> ids) {
 
@@ -257,5 +274,37 @@ public class ProdutoService {
 
     public Set<String> listaTamanhos() {
         return repository.getAllTamanhos();
+    }
+
+    public boolean cadastroImagem(MultipartFile[] files, Integer idProduto, String hexadecimal) {
+        boolean cadastradoComSucesso = true;
+        for(MultipartFile file : files){
+            try {
+                String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+                String contentType = file.getContentType();
+                InputStream is = file.getInputStream();
+
+                URI url = uploadArquivoparaS3(is, fileName, contentType);
+
+                Produto produto = repository.findById(idProduto).orElseThrow(()
+                        -> new EntityNotFoundException("Id " + idProduto + " de produto não encontrado"));
+
+                corProdutoService.cadastroImagem(produto, hexadecimal, url.toString());
+            } catch (IOException e) {
+                cadastradoComSucesso = false;
+            }
+        }
+        return cadastradoComSucesso;
+    }
+
+    public URI uploadArquivoparaS3(InputStream is, String fileName, String contentType){
+        try {
+            ObjectMetadata meta = new ObjectMetadata();
+            meta.setContentType(contentType);
+            s3Client.putObject(bucketName, fileName, is, meta);
+            return s3Client.getUrl(bucketName, fileName).toURI();
+        } catch (URISyntaxException e) {
+            throw  new RuntimeException("Erro ao converter URL para URI");
+        }
     }
 }

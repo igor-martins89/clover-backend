@@ -24,4 +24,11 @@ public class CorController {
         List<CorDTO> lista = service.cadastrarCor(dto);
         return ResponseEntity.status(201).body(lista);
     }
+
+    @GetMapping
+    public ResponseEntity<List<CorDTO>> listaCores(){
+        List<CorDTO> lista = service.listaCores();
+
+        return lista.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.status(200).body(lista);
+    }
 }

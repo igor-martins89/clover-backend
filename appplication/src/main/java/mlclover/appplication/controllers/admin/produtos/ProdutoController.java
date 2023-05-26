@@ -7,10 +7,13 @@ import mlclover.appplication.entities.admin.produtos.Produto;
 import mlclover.appplication.services.admin.produtos.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -22,6 +25,7 @@ public class ProdutoController {
 
     @Autowired
     ProdutoService service;
+
 
     @PostMapping
     public ResponseEntity<List<ProdutoDTO>> cadastrarProduto(@Valid @RequestBody ProdutoDTO dto){
@@ -85,5 +89,18 @@ public class ProdutoController {
         return tamanhos.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.status(200).body(tamanhos);
     }
 
+    @PostMapping("/imagens")
+    public ResponseEntity<String> cadastroImagem(
+            @RequestParam(value = "files") MultipartFile[] files,
+            @RequestParam(value = "idProduto") Integer idProduto,
+            @RequestParam(value = "hexadecimal") String hexadecimal
+    ){
+        boolean cadastradoComSucesso = service.cadastroImagem(files, idProduto, hexadecimal);
+
+        String mensagem = cadastradoComSucesso ? "Imagens cadastradas com sucesso" : "Erro ao cadastrar as imagens";
+        HttpStatus status = cadastradoComSucesso ? HttpStatus.CREATED : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        return ResponseEntity.status(status).body(mensagem);
+    }
 
 }
