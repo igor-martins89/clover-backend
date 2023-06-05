@@ -1,6 +1,7 @@
 # backend-clover
 
-<!-- PARA RODAR NO AMBIENTE DE DEV, UTILIZE O SEGUINTE SCRIPT NO MYSQL -->
+# PARA RODAR NO AMBIENTE DE DEV, UTILIZE O SEGUINTE SCRIPT NO MYSQL
+
 USE clover;
 
 SELECT * FROM tb_colecao;
@@ -306,5 +307,116 @@ FROM tb_produto
 INNER JOIN tb_produto_subcategoria 
 ON tb_produto.id = tb_produto_subcategoria.produto_id 
 WHERE tb_produto_subcategoria.colecao_id = 2;
+
+
+
+
+INSERT INTO tb_cor VALUES
+('#2F4F4F', 'DarkSlateGray'),
+('#006400', 'DarkGreen'),
+('#000000', 'Black'),
+('#C0C0C0', 'Silver'),
+('#808080', 'Gray'),
+('#00008B', 'DarkBlue'),
+('#0000FF', 'Blue');
+
+SELECT * FROM tb_cor;
+
+SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = 'CLOVER'
+AND TABLE_ROWS = 0;
+
+
+SELECT * FROM tb_cor_produto;
+
+INSERT INTO tb_cor_produto VALUES
+('#2F4F4F', 1),
+('#006400', 1),
+('#000000', 1),
+('#C0C0C0', 1),
+('#808080', 1),
+('#00008B', 1),
+('#0000FF', 1),
+
+('#2F4F4F', 2),
+('#006400', 2),
+('#000000', 2),
+('#C0C0C0', 2),
+('#808080', 2),
+('#00008B', 2),
+('#0000FF', 2),
+
+('#2F4F4F', 3),
+('#006400', 3),
+('#000000', 3),
+('#C0C0C0', 3),
+('#808080', 3),
+('#00008B', 3),
+('#0000FF', 3),
+
+('#2F4F4F', 4),
+('#006400', 4),
+('#000000', 4),
+('#C0C0C0', 4),
+('#808080', 4),
+('#00008B', 4),
+('#0000FF', 4),
+
+('#2F4F4F', 5),
+('#006400', 5),
+('#000000', 5),
+('#C0C0C0', 5),
+('#808080', 5),
+('#00008B', 5),
+('#0000FF', 5),
+
+('#2F4F4F', 6),
+('#006400', 6),
+('#000000', 6),
+('#C0C0C0', 6),
+('#808080', 6),
+('#00008B', 6),
+('#0000FF', 6),
+
+('#2F4F4F', 7),
+('#006400', 7),
+('#000000', 7),
+('#C0C0C0', 7),
+('#808080', 7),
+('#00008B', 7),
+('#0000FF', 7),
+
+('#2F4F4F', 8),
+('#006400', 8),
+('#000000', 8),
+('#C0C0C0', 8),
+('#808080', 8),
+('#00008B', 8),
+('#0000FF', 8),
+
+('#2F4F4F', 9),
+('#006400', 9),
+('#000000', 9),
+('#C0C0C0', 9),
+('#808080', 9),
+('#00008B', 9),
+('#0000FF', 9),
+
+('#2F4F4F', 10),
+('#006400', 10),
+('#000000', 10),
+('#C0C0C0', 10),
+('#808080', 10),
+('#00008B', 10),
+('#0000FF', 10);
+
+
+INSERT INTO tb_imagem VALUES
+('#2F4F4F', 10, 'https://clovers3-image.s3.amazonaws.com/1685989495209_luffy3.jpeg'),
+('#2F4F4F', 10, 'https://clovers3-image.s3.amazonaws.com/1685989494754_luffy2.jpeg'),
+('#2F4F4F', 10, 'https://clovers3-image.s3.amazonaws.com/1685989493436_luffy1.jpeg');
+
+SELECT cor_id as 'Hexadecimal', produto_id as 'ID do Produto', imagem as 'URL' FROM tb_imagem;
 
 

@@ -277,23 +277,31 @@ public class ProdutoService {
     }
 
     public boolean cadastroImagem(MultipartFile[] files, Integer idProduto, String hexadecimal) {
+
         boolean cadastradoComSucesso = true;
+        Produto produto = repository.findById(idProduto).orElseThrow(()
+                -> new EntityNotFoundException("Id " + idProduto + " de produto não encontrado"));
+
+        List<String> listaURLs = new ArrayList<>();
+
         for(MultipartFile file : files){
             try {
+
                 String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
                 String contentType = file.getContentType();
                 InputStream is = file.getInputStream();
 
                 URI url = uploadArquivoparaS3(is, fileName, contentType);
 
-                Produto produto = repository.findById(idProduto).orElseThrow(()
-                        -> new EntityNotFoundException("Id " + idProduto + " de produto não encontrado"));
+                listaURLs.add(url.toString());
 
-                corProdutoService.cadastroImagem(produto, hexadecimal, url.toString());
             } catch (IOException e) {
                 cadastradoComSucesso = false;
             }
         }
+
+        corProdutoService.cadastroImagem(produto, hexadecimal, listaURLs);
+
         return cadastradoComSucesso;
     }
 
