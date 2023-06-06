@@ -1,16 +1,14 @@
 package mlclover.appplication.dtos.admin.produtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mlclover.appplication.dtos.admin.classificacoes.SubcategoriaDTO;
 import mlclover.appplication.entities.admin.produtos.Produto;
-import org.springframework.data.domain.Page;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -19,10 +17,15 @@ import java.util.Set;
 public class ProdutoDTO {
 
     private Integer id;
+    @NotEmpty(message = "Preenchimento obrigatório")
+    @Size(min = 2, max= 80, message = "O tamanho deve ser entre {min} e {max} caracteres.")
     private String nome;
-    private String descricao;
-    private Double valor;
-    private Set<String> tamanhos = new HashSet<>();
-    private List<SubcategoriaDTO> subcategorias;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private Double preco;
 
+    public ProdutoDTO(Produto obj){
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.preco = obj.getValor();
+    }
 }

@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mlclover.appplication.entities.enums.Tipo;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

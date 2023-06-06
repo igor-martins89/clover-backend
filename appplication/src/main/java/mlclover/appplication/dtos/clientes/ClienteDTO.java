@@ -6,13 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import mlclover.appplication.entities.clientes.Cliente;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -37,5 +41,21 @@ public class ClienteDTO {
     private Date dataNascimento;
 
     private String cpfOuCnpj;
+
+    private List<Integer> perfis = new ArrayList<>();
+    private boolean isLogado;
+
+
+    public ClienteDTO(Cliente obj){
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.email = obj.getEmail();
+
+        // Se o perfil == 1 => ADMIN
+        // Se o perfil == 2 => CLIENTE
+        this.perfis = obj.getPerfis().stream().map(x -> x.getCod()).collect(Collectors.toList());
+        this.isLogado = obj.isLogado();
+    }
+
 
 }

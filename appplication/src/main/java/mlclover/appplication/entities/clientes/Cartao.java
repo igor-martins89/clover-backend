@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mlclover.appplication.entities.enums.Tipo;
+import mlclover.appplication.entities.clientes.enums.Tipo;
 
 import javax.persistence.*;
 import java.io.Serializable;

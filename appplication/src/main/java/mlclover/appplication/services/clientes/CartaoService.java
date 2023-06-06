@@ -3,7 +3,7 @@ package mlclover.appplication.services.clientes;
 
 import mlclover.appplication.dtos.clientes.CartaoDTO;
 import mlclover.appplication.entities.clientes.Cartao;
-import mlclover.appplication.entities.enums.Tipo;
+import mlclover.appplication.entities.clientes.enums.Tipo;
 import mlclover.appplication.repositories.clientes.CartaoRepository;
 import mlclover.appplication.services.exceptions.AuthenticationCredentialsNotFoundException;
 import mlclover.appplication.services.exceptions.EntityNotFoundException;

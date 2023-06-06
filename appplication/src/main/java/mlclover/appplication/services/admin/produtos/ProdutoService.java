@@ -5,7 +5,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import mlclover.appplication.dtos.admin.classificacoes.CategoriaDTO;
 import mlclover.appplication.dtos.admin.classificacoes.ColecaoDTO;
 import mlclover.appplication.dtos.admin.classificacoes.SubcategoriaDTO;
-import mlclover.appplication.dtos.admin.produtos.ProdutoDTO;
+import mlclover.appplication.dtos.admin.produtos.ProdutoCadastroDTO;
 import mlclover.appplication.dtos.admin.produtos.ProdutoResponseDTO;
 import mlclover.appplication.entities.admin.classificacoes.*;
 import mlclover.appplication.entities.admin.classificacoes.ids.CategoriaSubcategoriaId;
@@ -78,7 +78,7 @@ public class ProdutoService {
         return lista;
     }
 
-    public List<ProdutoDTO> cadastrarProduto(ProdutoDTO dto) {
+    public List<ProdutoCadastroDTO> cadastrarProduto(ProdutoCadastroDTO dto) {
         subcategoriaService.hasListaSubcategorias(dto.getSubcategorias());
 
 
@@ -114,11 +114,11 @@ public class ProdutoService {
 
     }
 
-    private List<ProdutoDTO> converterListaProdutoEmListaProdutoDTO(List<Produto> produtos) {
+    private List<ProdutoCadastroDTO> converterListaProdutoEmListaProdutoDTO(List<Produto> produtos) {
         return produtos.stream().map(produto -> converterProdutoEmProdutoDTO(produto)).collect(Collectors.toList());
     }
 
-    private List<ProdutoSubcategoria> organizarRelacionamentosDeProduto(Produto produto, ProdutoDTO dto) {
+    private List<ProdutoSubcategoria> organizarRelacionamentosDeProduto(Produto produto, ProdutoCadastroDTO dto) {
 
         if(dto.getSubcategorias().isEmpty())
             throw new CategoriaSemAssociacaoException("P produto não tem associação com nenhuma subcategoria");
@@ -167,7 +167,7 @@ public class ProdutoService {
         return listaProdutoSubcategoria;
     }
 
-    private Produto converterProdutoDTOEmProduto(ProdutoDTO dto) {
+    private Produto converterProdutoDTOEmProduto(ProdutoCadastroDTO dto) {
 
         Produto obj = new Produto();
         obj.setNome(dto.getNome());
@@ -178,8 +178,8 @@ public class ProdutoService {
         return obj;
     }
 
-    private ProdutoDTO converterProdutoEmProdutoDTO(Produto obj){
-        ProdutoDTO dto = new ProdutoDTO();
+    private ProdutoCadastroDTO converterProdutoEmProdutoDTO(Produto obj){
+        ProdutoCadastroDTO dto = new ProdutoCadastroDTO();
 
         dto.setId(obj.getId());
         dto.setNome(obj.getNome());
@@ -314,5 +314,10 @@ public class ProdutoService {
         } catch (URISyntaxException e) {
             throw  new RuntimeException("Erro ao converter URL para URI");
         }
+    }
+
+    public Produto find(Integer id){
+        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException(
+                "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName()));
     }
 }

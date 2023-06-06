@@ -1,4 +1,4 @@
-package mlclover.appplication.entities.enums;
+package mlclover.appplication.entities.clientes.enums;
 
 
 import lombok.AllArgsConstructor;

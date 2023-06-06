@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mlclover.appplication.entities.enums.TipoCliente;
+import mlclover.appplication.entities.clientes.enums.Perfil;
+import mlclover.appplication.entities.clientes.enums.TipoCliente;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -44,6 +44,10 @@ public class Cliente implements Serializable {
     @Column(nullable=false, length=1)
     private String genero;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "TB_PERFIL")
+    private Set<Integer> perfis = new HashSet<>();
+
     /** Atributo para validação de login, substituindo o JWT */
     private boolean isLogado;
 
@@ -70,4 +74,13 @@ public class Cliente implements Serializable {
         this.cartoes = cartoes;
         this.isLogado = isLogado;
     }
+
+    public void addPerfil(Perfil perfil){
+        perfis.add(perfil.getCod());
+    }
+
+    public Set<Perfil> getPerfis(){
+        return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+    }
+
 }

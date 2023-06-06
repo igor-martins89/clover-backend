@@ -1,9 +1,7 @@
 package mlclover.appplication.controllers.admin.produtos;
 
-import mlclover.appplication.dtos.admin.classificacoes.CategoriaDTO;
-import mlclover.appplication.dtos.admin.produtos.ProdutoDTO;
+import mlclover.appplication.dtos.admin.produtos.ProdutoCadastroDTO;
 import mlclover.appplication.dtos.admin.produtos.ProdutoResponseDTO;
-import mlclover.appplication.entities.admin.produtos.Produto;
 import mlclover.appplication.services.admin.produtos.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -28,8 +24,8 @@ public class ProdutoController {
 
 
     @PostMapping
-    public ResponseEntity<List<ProdutoDTO>> cadastrarProduto(@Valid @RequestBody ProdutoDTO dto){
-        List<ProdutoDTO> lista = service.cadastrarProduto(dto);
+    public ResponseEntity<List<ProdutoCadastroDTO>> cadastrarProduto(@Valid @RequestBody ProdutoCadastroDTO dto){
+        List<ProdutoCadastroDTO> lista = service.cadastrarProduto(dto);
         return ResponseEntity.status(201).body(lista);
     }
 

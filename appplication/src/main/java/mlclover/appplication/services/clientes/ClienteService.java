@@ -5,6 +5,7 @@ import mlclover.appplication.dtos.clientes.ClienteCadastroInicialDTO;
 import mlclover.appplication.dtos.clientes.ClienteDTO;
 import mlclover.appplication.dtos.clientes.ClienteLoginDTO;
 import mlclover.appplication.entities.clientes.Cliente;
+import mlclover.appplication.entities.clientes.enums.Perfil;
 import mlclover.appplication.repositories.clientes.ClienteRepository;
 import mlclover.appplication.services.exceptions.AuthenticationCredentialsNotFoundException;
 import mlclover.appplication.services.exceptions.BadCredentialsException;
@@ -13,6 +14,9 @@ import mlclover.appplication.services.exceptions.UsernameNotFoundException;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ClienteService {
@@ -61,6 +65,9 @@ public class ClienteService {
         obj.setSenha(dto.getSenha());
         obj.setGenero(dto.getGenero());
         obj.setTelefone(dto.getTelefone());
+        obj.addPerfil(Perfil.CLIENTE);
+
+
 
         return obj;
     }
@@ -95,6 +102,8 @@ public class ClienteService {
         dto.setEmail(obj.getEmail());
         dto.setTelefone(obj.getTelefone());
         dto.setGenero(obj.getGenero());
+        dto.setPerfis(obj.getPerfis().stream().map(x -> x.getCod()).collect(Collectors.toList()));
+        dto.setLogado(obj.isLogado());
 
         if(obj.getDataNascimento() != null){
             dto.setDataNascimento(obj.getDataNascimento());
@@ -122,5 +131,13 @@ public class ClienteService {
             return converteClienteParaClienteDTO(encontrarPorId(id));
         }
         throw new AuthenticationCredentialsNotFoundException("Autenticação necessária, por favor faça o login para continuar");
+    }
+
+    public Cliente find(Integer id){
+
+        Optional<Cliente> obj = repository.findById(id);
+        return obj.orElseThrow(() -> new EntityNotFoundException(
+                "Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
+
     }
 }

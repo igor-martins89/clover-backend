@@ -5,9 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mlclover.appplication.entities.enums.Tipo;
+import mlclover.appplication.entities.clientes.Endereco;
+import mlclover.appplication.entities.clientes.enums.Tipo;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -45,4 +45,17 @@ public class EnderecoDTO {
     private String destinatario;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Tipo tipoEndereco;
+
+    public EnderecoDTO(Endereco obj){
+        this.id = obj.getId();
+        this.numero = obj.getNumero();
+        this.complemento = obj.getComplemento();
+        this.destinatario = obj.getDestinatario();
+        this.cep = obj.getCep();
+        this.rua = obj.getRua();
+        this.bairro = obj.getBairro();
+        this.cidade = obj.getCidade();
+        this.estado = obj.getEstado();
+        this.tipoEndereco = Tipo.toEnum(obj.getTipoEndereco());
+    }
 }

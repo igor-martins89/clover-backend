@@ -1,30 +1,29 @@
-package mlclover.appplication.entities.enums;
-
+package mlclover.appplication.entities.pedidos.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum TipoCliente {
+public enum EstadoPagamento {
 
-    PESSOA_FISICA(1, "Pessoa Física"),
-    PESSOA_JURIDICA(2 , "Pessoa Jurídica");
+    PENDENTE(1, "Pendente"),
+    QUITADO(2, "Quitado"),
+    CANCELADO(3, "Cancelado");
 
     private  int cod;
     private String descricao;
 
-    public static TipoCliente toEnum(Integer cod){
+    public static EstadoPagamento toEnum(Integer cod){
         if (cod == null){
             return null;
         }
 
-        for(TipoCliente tipo : TipoCliente.values()){
+        for(EstadoPagamento tipo : EstadoPagamento.values()){
             if( cod.equals(tipo.getCod())){
                 return tipo;
             }
         }
         throw new IllegalArgumentException("ID inválido: " + cod);
     }
-
 }
