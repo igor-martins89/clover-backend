@@ -29,8 +29,7 @@ jobs:
           echo "MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}" >> $GITHUB_ENV
           echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> $GITHUB_ENV
 
-      - name: Change to backend directory
-        run: cd clover-backend
-
       - name: Build and test with Maven
-        run: mvn clean test
+        run: |
+          cd $GITHUB_WORKSPACE/clover-backend
+          mvn clean test
