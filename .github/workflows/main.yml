@@ -19,6 +19,11 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
+      - name: Set up Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
       - name: Set up environment variables
         run: |
           echo "MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}" >> $GITHUB_ENV
