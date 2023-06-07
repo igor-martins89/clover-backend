@@ -31,5 +31,5 @@ jobs:
 
       - name: Build and test with Maven
         run: |
-          cd $GITHUB_WORKSPACE/clover-backend
+          cd $GITHUB_WORKSPACE/application
           mvn clean test
