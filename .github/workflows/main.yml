@@ -31,5 +31,5 @@ jobs:
 
       - name: Build and test with Maven
         run: |
-          cd $GITHUB_WORKSPACE/application
+          cd /application
           mvn clean test
