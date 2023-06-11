@@ -57,6 +57,8 @@ public class CartaoService {
       obj.setUltimosQuatroDigitos(dto.getNumero().substring(12));
       obj.setDataVencimento(dto.getDataVencimento());
       obj.setCvv(dto.getCvv());
+      obj.setCliente(clienteService.find(idCliente));
+
 
         return obj;
     }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import mlclover.appplication.services.validation.IdentificadorCliente;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,6 +16,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@IdentificadorCliente
 public class ClienteCadastroAdicionalDTO {
 
     @Temporal(TemporalType.DATE)
@@ -22,5 +24,12 @@ public class ClienteCadastroAdicionalDTO {
     private Date dataNascimento;
 
     private String cpfOuCnpj;
+    /**
+     Os Tipos referem-se a PF ou PJ
+
+     PESSOA_FISICA = tipo 1
+     PESSOA_JURIDICA = tipo 2
+     */
+    private Integer tipo;
 
 }

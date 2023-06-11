@@ -1,5 +1,7 @@
 package mlclover.appplication.controllers.admin.classificacoes;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import mlclover.appplication.dtos.admin.classificacoes.ColecaoDTO;
 import mlclover.appplication.dtos.admin.classificacoes.ColecaoResponseDTO;
 import mlclover.appplication.entities.admin.classificacoes.Colecao;
@@ -12,14 +14,16 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/colecoes")
+@RequestMapping("/v1/colecoes")
 @CrossOrigin("*")
+@Api("Address REST API")
 public class ColecaoController {
 
     @Autowired
     ColecaoService service;
 
     @PostMapping
+    @ApiOperation(value = "Cadastra uma coleção")
     public ResponseEntity<List<ColecaoDTO>> cadastroColecao(@Valid @RequestBody ColecaoDTO dto){
         List<ColecaoDTO> lista = service.cadastroColecao(dto);
         return ResponseEntity.status(201).body(lista);
@@ -31,6 +35,7 @@ public class ColecaoController {
      */
 
     @GetMapping
+    @ApiOperation(value = "Retorna a lista de coleções, em conjunto com a lista de categorias e a lista de subcategorias")
     public ResponseEntity<List<ColecaoResponseDTO>> listaColecoes(){
         List<ColecaoResponseDTO> lista =  service.listaColecoes();
 

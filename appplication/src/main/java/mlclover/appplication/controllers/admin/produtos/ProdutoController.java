@@ -1,5 +1,7 @@
 package mlclover.appplication.controllers.admin.produtos;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import mlclover.appplication.dtos.admin.produtos.ProdutoCadastroDTO;
 import mlclover.appplication.dtos.admin.produtos.ProdutoResponseDTO;
 import mlclover.appplication.services.admin.produtos.ProdutoService;
@@ -15,8 +17,9 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/v1/produtos")
 @CrossOrigin("*")
+@Api("Address REST API")
 public class ProdutoController {
 
     @Autowired
@@ -24,6 +27,7 @@ public class ProdutoController {
 
 
     @PostMapping
+    @ApiOperation(value = "Cadastra um produto")
     public ResponseEntity<List<ProdutoCadastroDTO>> cadastrarProduto(@Valid @RequestBody ProdutoCadastroDTO dto){
         List<ProdutoCadastroDTO> lista = service.cadastrarProduto(dto);
         return ResponseEntity.status(201).body(lista);
@@ -56,6 +60,7 @@ public class ProdutoController {
      */
 
     @GetMapping
+    @ApiOperation(value = "Retorna uma lista de produtos de acordo com os parâmetros* passados")
     public ResponseEntity<Page<ProdutoResponseDTO>> listaProdutos(
             @RequestParam(value="colecao", defaultValue="0") int idColecao,
             @RequestParam(value="categoria", defaultValue="0") int idCategoria,
@@ -78,6 +83,7 @@ public class ProdutoController {
      * */
 
     @GetMapping("/tamanhos")
+    @ApiOperation(value = "Retorna uma lista dos tamanhos dos produtos")
     public ResponseEntity<Set<String>> listaTamanhos(){
 
         Set<String> tamanhos = service.listaTamanhos();
@@ -86,6 +92,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/imagens")
+    @ApiOperation(value = "Cadastra as imagens correspondentes aos produtos")
     public ResponseEntity<String> cadastroImagem(
             @RequestParam(value = "files") MultipartFile[] files,
             @RequestParam(value = "idProduto") Integer idProduto,
@@ -98,5 +105,14 @@ public class ProdutoController {
 
         return ResponseEntity.status(status).body(mensagem);
     }
+
+    @GetMapping("/novidades")
+    @ApiOperation(value = "Retorna os 12 últimos produtos cadastrados")
+    public ResponseEntity<List<ProdutoResponseDTO>> novosProdutos(){
+        List<ProdutoResponseDTO> lista = service.novosProdutos();
+
+        return lista.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.status(200).body(lista);
+    }
+
 
 }

@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
 
@@ -32,4 +31,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 
     @Query("SELECT DISTINCT t FROM Produto p JOIN p.tamanhos t")
     Set<String> getAllTamanhos();
+
+    List<Produto> findTop12ByOrderByIdDesc();
 }

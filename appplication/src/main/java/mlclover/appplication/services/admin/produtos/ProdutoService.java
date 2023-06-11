@@ -320,4 +320,13 @@ public class ProdutoService {
         return repository.findById(id).orElseThrow(() -> new EntityNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName()));
     }
+
+    public List<ProdutoResponseDTO> novosProdutos() {
+        return buscarProdutosNovos();
+    }
+
+    private List<ProdutoResponseDTO> buscarProdutosNovos() {
+        List<Produto> produtos = repository.findTop12ByOrderByIdDesc();
+        return ProdutoResponseDTO.conversor(produtos);
+    }
 }

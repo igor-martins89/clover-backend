@@ -1,5 +1,7 @@
 package mlclover.appplication.controllers.admin.classificacoes;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import mlclover.appplication.dtos.admin.classificacoes.CategoriaDTO;
 import mlclover.appplication.dtos.admin.classificacoes.SubcategoriaDTO;
 import mlclover.appplication.services.admin.classificacoes.SubcategoriaService;
@@ -11,14 +13,16 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/subcategorias")
+@RequestMapping("/v1/subcategorias")
 @CrossOrigin("*")
+@Api("Address REST API")
 public class SubcategoriaController {
 
     @Autowired
     SubcategoriaService service;
 
     @PostMapping
+    @ApiOperation(value = "Cadastra uma subcategoria")
     public ResponseEntity<List<SubcategoriaDTO>> cadastrarSubcategoria(@Valid @RequestBody SubcategoriaDTO dto){
         List<SubcategoriaDTO> lista = service.cadastrarSubcategoria(dto);
         return ResponseEntity.status(201).body(lista);

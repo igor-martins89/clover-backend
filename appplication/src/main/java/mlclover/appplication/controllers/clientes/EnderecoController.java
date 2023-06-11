@@ -1,5 +1,7 @@
 package mlclover.appplication.controllers.clientes;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import mlclover.appplication.dtos.clientes.EnderecoDTO;
 import mlclover.appplication.services.clientes.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,9 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/enderecos")
+@RequestMapping(value="/v1/enderecos")
 @CrossOrigin("*")
+@Api("Address REST API")
 public class EnderecoController {
 
     @Autowired
@@ -22,6 +25,7 @@ public class EnderecoController {
       */
 
     @PostMapping(value = "/{idCliente}")
+    @ApiOperation(value = "Cadastra endereço")
     public ResponseEntity<List<EnderecoDTO>> cadastroEndereco(@Valid @RequestBody EnderecoDTO dto, @PathVariable int idCliente){
 
         List<EnderecoDTO> lista = service.cadastroEndereco(dto, idCliente);
@@ -34,6 +38,7 @@ public class EnderecoController {
       */
 
     @PutMapping(value = "/{idCliente}/{idEndereco}")
+    @ApiOperation(value = "Atualiza informações de endereço")
     public ResponseEntity<List<EnderecoDTO>> atualizacaoEndereco(@Valid @RequestBody EnderecoDTO dto, @PathVariable int idCliente, @PathVariable int idEndereco){
 
         List<EnderecoDTO> lista = service.atualizacaoEndereco(dto, idCliente, idEndereco);
@@ -44,6 +49,7 @@ public class EnderecoController {
     /** Único objetivo do endpoint é atualizar o endereço padrão, colocando os demais endereços como ADITIONAL  */
 
     @PutMapping(value = "/{idCliente}/endereco-padrao/{idEndereco}")
+    @ApiOperation(value = "Atualiza endereço padrão de cliente")
     public ResponseEntity<List<EnderecoDTO>> atualizacaoEnderecoPadrao(@PathVariable int idCliente, @PathVariable int idEndereco){
 
         List<EnderecoDTO> lista = service.atualizacaoEnderecoPadrao(idCliente, idEndereco);
@@ -56,6 +62,7 @@ public class EnderecoController {
       */
 
     @DeleteMapping(value = "{idCliente}/{idEndereco}")
+    @ApiOperation(value = "Deleta endereço")
     public ResponseEntity<List<EnderecoDTO>> deletarEndereco(@PathVariable int idCliente, @PathVariable int idEndereco){
 
         List<EnderecoDTO> lista = service.deletarEndereco(idCliente, idEndereco);
@@ -66,6 +73,7 @@ public class EnderecoController {
     /** Busca todos os endereços associados a um ID de Cliente */
 
     @GetMapping(value = "{idCliente}")
+    @ApiOperation(value = "Busca todos os endereços de determinado cliente")
     public ResponseEntity<List<EnderecoDTO>> buscaListaEnderecosPorClienteId(@PathVariable int idCliente){
 
         List<EnderecoDTO> lista = service.buscaListaEnderecosPorClienteId(idCliente);

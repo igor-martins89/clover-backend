@@ -1,5 +1,7 @@
 package mlclover.appplication.controllers.clientes;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import mlclover.appplication.dtos.clientes.CartaoDTO;
 import mlclover.appplication.services.clientes.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,9 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/cartoes")
+@RequestMapping(value="/v1/cartoes")
 @CrossOrigin("*")
+@Api("Address REST API")
 public class CartaoController {
 
     @Autowired
@@ -21,7 +24,8 @@ public class CartaoController {
      o DEFAULT, e o resto como ADITIONAL
      */
 
-    @PostMapping(value = "/{idCliente}", name = "qualquer.nome.cartao")
+    @PostMapping(value = "/{idCliente}")
+    @ApiOperation(value = "Cadastra um cartão")
     public ResponseEntity<List<CartaoDTO>> cadastroCartao(@Valid @RequestBody CartaoDTO dto, @PathVariable int idCliente){
 
         List<CartaoDTO> lista = service.cadastroCartao(dto, idCliente);
@@ -34,6 +38,7 @@ public class CartaoController {
      */
 
     @PutMapping(value = "/{idCliente}/{idCartao}")
+    @ApiOperation(value = "Atualiza um cartão")
     public ResponseEntity<List<CartaoDTO>> atualizacaoCartao(@Valid @RequestBody CartaoDTO dto, @PathVariable int idCliente, @PathVariable int idCartao){
 
         List<CartaoDTO> lista = service.atualizacaoCartao(dto, idCliente, idCartao);
@@ -44,6 +49,7 @@ public class CartaoController {
     /** Único objetivo do endpoint é atualizar o cartao padrão, colocando os demais cartoes como ADITIONAL  */
 
     @PutMapping(value = "/{idCliente}/cartao-padrao/{idCartao}")
+    @ApiOperation(value = "Atualiza o cartão principal do cliente")
     public ResponseEntity<List<CartaoDTO>> atualizacaoCartaoPadrao(@PathVariable int idCliente, @PathVariable int idCartao){
 
         List<CartaoDTO> lista = service.atualizacaoCartaoPadrao(idCliente, idCartao);
@@ -56,6 +62,7 @@ public class CartaoController {
      */
 
     @DeleteMapping(value = "{idCliente}/{idCartao}")
+    @ApiOperation(value = "Deleta um cartão")
     public ResponseEntity<List<CartaoDTO>> deletarCartao(@PathVariable int idCliente, @PathVariable int idCartao){
 
         List<CartaoDTO> lista = service.deletarCartao(idCliente, idCartao);
@@ -66,6 +73,7 @@ public class CartaoController {
     /** Busca todos os cartoes associados a um ID de Cliente */
 
     @GetMapping(value = "{idCliente}")
+    @ApiOperation(value = "Retorna todos os cartões de determinado cliente")
     public ResponseEntity<List<CartaoDTO>> buscaListaCartoesPorClienteId(@PathVariable int idCliente){
 
         List<CartaoDTO> lista = service.buscaListaCartoesPorClienteId(idCliente);
