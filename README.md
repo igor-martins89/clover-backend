@@ -4,419 +4,318 @@
 
 USE clover;
 
-SELECT * FROM tb_colecao;
+INSERT INTO tb_colecao (nome) VALUES ('Camisetas'), ('Calças'), ('Blusas'), ('Acessórios');
 
-INSERT INTO tb_colecao (nome) VALUES
-('Blusas'),
-('Camisetas'),
-('Funkos'),
-('Acessórios');
-
-
-SELECT * FROM tb_categoria;
-
-INSERT INTO tb_categoria (nome) VALUES
-('Animes'),
-('Desenhos'),
-('Filmes'),
-('Séries'),
-('Jogos');
-
-
-SELECT * FROM tb_subcategoria;
-
+INSERT INTO tb_categoria (nome) VALUES ('Animes'), ('Filmes'), ('Séries'), ('Desenhos'), ('Games');
 
 INSERT INTO tb_subcategoria (nome) VALUES
-
--- ANIMES
-('One Piece'),
-('Naruto'),
-('One Punch Man'),
-('Bleach'),
-('Attack On Titan'),
+-- ANIMES 
+('One Piece'), ('Naruto'), ('Attack On Titan'),
 
 -- DESENHOS 
-('A Turma da Mônica'),
-('Bojack Horseman'),
-('Rick And Morty'),
-('KND - A Turma do Bairro'),
--- FILMES
-('Star Wars'),
-('O Senhor dos Aneis'),
-('De Volta Para o Futuro'),
-('O Poderoso Chefão'),    
+('Rei Leão'), ('Rick & Morty'), ('Kung Fu Panda'), 
 
--- SÉRIES
-('Dark'),
-('The Witcher'),
-('Brooklin 99'),
-('The Office'),
-('The Big Bang Theory'),     
+-- FILMES 
+('Star Wars'), ('O Senhor dos Aneis'), ('Harry Potter'),
 
--- JOGOS
-('Mario Bros'),
-('Red Dead Redemption'),
-('God Of War');
+-- SÉRIES 
+('Breaking Bad'), ('Game of Thrones'),
 
-SELECT * FROM tb_produto;
+-- GAMAS 
+('Mario Bros');
 
-INSERT INTO tb_produto (nome, descricao, valor) VALUES
-('Funko Luffy Gear 4th', 'Veja o Luffy na sua versão Gear 4th', 257),
-('Funko Zoro', 'Veja o Zoro', 117),
-('Funko Nami', 'Veja o Nami', 127),
-('Funko Chopper', 'Veja o Chopper', 287),
-('Funko Naruto', 'Veja o Naruto', 147),
-('Funko Sanji', 'Veja o Sanji', 157),
-('Camiseta Luffy Gear 5th', 'Veja o Luffy na sua versão Gear 5th', 67),
-('Camiseta Naruto', 'Veja o Naruto', 47),
-('Camiseta Sasuke', 'Veja o Sasuke', 37),
-('Camiseta Sakura', 'Veja o Sakura', 67);
+INSERT INTO tb_produto (nome, descricao, valor) VALUES 
+('CAMISETA ONE PIECE CHIBI', 'A amizade é um dos valores mais importantes. Se você não sabe cozinhar, navegar ou até mesmo mentir, seus amigos são forças complementares que tornam a sua vida uma aventura! Você não precisa partir em uma jornada para encontrar um tesouro, pois a qualidade dessa estampa serigrafada em tecido de algodão, com os personagens que você ama de forma tão adorável, são um pequeno tesouro valoroso o bastante para você sempre guardar no coração.', 65.90),
+('CAMISETA NARUTO - AVENGER SASUKE', 'Sasuke trilhou o caminho das trevas. Ele é um vingador disposto a descontar as feridas que o mundo deixou em seu coração e em seus olhos poderosos. Para isso, Konoha deve perecer! Ao vestir essa camiseta feita de tecido poliéster, você não precisa temer ao ser dominado pelo espírito da vingança. O conforto do tecido e sua resistência, a qual inclui a estampa serigrafada, faz da vingança um sentimento mais sedutor do que você imagina…', 75.90),
+('MOLETOM NARUTO - MISSÃO JOUNIN', 'Chegou o momento de subir de nível. Ninjas amadores não podem ser dignos de herdar a vontade do fogo. Seu traje simboliza onde o seu coração está, e carrega sua força para combater. É por isso que esse tecido poliéster fibroso e persistente contra amassaduras irá te revestir com durabilidade e segurança contra o frio para te honrar como um verdadeiro Jounin!', 139.90),
+('CAMISETA NARUTO - A PRIMAVERA DE SAKURA', 'Quando as cerejeiras caem em Konoha, pode-se apreciar a ternura e beleza que se sobressaem na paisagem poderosamente, destacando a força e a sensibilidade que emanam da alma de uma mulher. Sakura personifica a alma da primavera, além de toda a classe de uma ninja médica inteligente. Essa camiseta de algodão, confortável e suave, exala a essência da discípula de Tsunade, aliando feminilidade com o poder visual capaz de destacar uma mulher valorosa como você.', 75.90),
+('CAMISETA ATTACK ON TITAN - A FÚRIA DE EREN', 'O grito de liberdade de Eren pulsando no seu peito (você vai até declamar em alto e bom tom: SASAGEYO)! Camiseta serigrafada com estampa titânica e tecido em algodão, resistente a dobras. Não existem muralhas que podem te impedir de viver esse mundo colossal com o estilo que você merece.', 75.90),
+('CALÇA STAR WARS - JEDI ORDER', 'Em uma galáxia muito, muito distante… um grupo de Jedis luta para restabelecer a paz. E você foi convocado! Mas você não deixaria de receber tal honraria sem um visual apropriado, certo? Essa calça moletom, tecida em algodão, cai bem com botas e outras peças de roupa mais despojadas. Só cuidado para não deixar seus companheiros Jedi com inveja…', 65.90),
+('CAMISETA STAR WARS - SIDES', 'Kenobi. Yoda. Leia. Chewbacca. Mais que nomes: lendas que resistem ao tempo. A cronologia de Star Wars no seu peito, de duas formas diferentes! Camiseta dupla face, com os personagens que fascinam seu imaginário e com as obras cinematográficas cronológicas que permitiram você se fascinar. Tudo em tecido algodão confortável e respirável.', 80.90),
+('HARRY POTTER - MOLETOM CORVINAL', 'Hogwarts valoriza as mentes brilhantes. E a Clover te fornece a oportunidade de ser um autêntico corvinal até mesmo no estilo! O nosso feitiço consiste em um moletom de algodão que vai aquecer seu corpo e coração, com estampa serigrafada de alta qualidade. E o toque final de mágica é como você vai se sentir estiloso(a).', 154.90),
+('HARRY POTTER - MOLETOM SONSERINA', 'Charme e elegância para te destacar em Hogwarts como um líder de valor. A pureza do sangue é reforçada com a nobreza que carrega a arte de estar bem apresentável no mundo mágico. Quem são os míseros mortais, afinal, diante desse moletom em algodão com estampa de qualidade serigráfica que a Clover pode te proporcionar?', 154.90),
+('HARRY POTTER - MOLETOM LUFA-LUFA', 'Você pode apreciar a vida como um feiticeiro modesto, sem pretensões grandiosas. Afinal, muito do aprendizado e dos valores essenciais estão nos momentos solenes. A moda pode te ajudar a apreciar a vida com leveza, irradiando o sol onde você passa. Se fizer isso revestido de um tecido de algodão confortável, carregando no peito a sua casa favorita serigrafada, é melhor ainda.', 154.90),
+('HARRY POTTER - MOLETOM GRIFINÓRIA', 'Tecido aconchegante de algodão com estampa serigráfica e capuz rubros, dignos de um Grifinório. A linhagem sanguínea não diz nada sobre quem você é, mas, de certo, o seu estilo em Hogwarts pode transparecer muita coisa…', 154.90),
+('CAMISETA ONE PIECE - CHOPPER STYLE', 'Não existe algodão doce que seja tão fofo quanto o Chopper. Nem algodão tão confortável quanto o tecido dessa camiseta, que protagoniza o médico mais icônico dos animes de maneira digital e serigráfica.', 122.90),
+('CAMISETA ONE PIECE - SANTORYUU ZORO', 'Zoro é como um imediato para os chapéus de palha. Ele não teme a dor e está disposto a proteger seus amigos, sem receios de retalhar quem precisar para isso. Ao vestir essa camiseta poliéster com estampa serigráfica, considere-a seu amuleto de proteção!', 104.30),
+('CAMISETA ONE PIECE - MUGIWARAS WANTED', 'As recompensas aumentaram. Já não é de hoje que a Marinha está de olho nos chapéus de palha. Mas, um fã não faz silêncio de quem gosta, não é mesmo? Você nem vai fazer questão de disfarçar com essa camiseta de tecido poliéster, com  serigrafia dos piratas mais amados do mundo!', 79.60),
+('CAMISETA ONE PIECE - DESTINY BROTHERS', 'Essa camiseta dupla face, com tecido em algodão de alta qualidade, é perfeita para você viver momentos nerd com seus melhores amigos. Seus laços de amizade ganharão força simbólica ao carregar no peito o profundo elo entre Luffy, Ace e Sabo.', 79.60),
+('CAMISETA NARUTO - NINE TAILS', 'O famoso ninja de cabelo loiro possui dentro de si um poder avassalador. Em batalha, poucos podem contra a Kyuubi. Moletom de tecido em algodão, respirável e com estampa serigráfica feito para te motivar a transcender os limites de poder com o chakra de Kurama. Agora, está mais fácil trazer o Sasuke de volta (a menos que você tenha algo melhor pra fazer…).', 79.60),
+('CALÇA NARUTO - BIJUU STYLE', 'Essa bela calça com tecido poliéster possui estampa serigráfica das feras mais poderosas do universo Naruto, como se fossem retiradas diretamente dos mangás. E aí, tem um bijuu favorito? Não precisa pensar demais, basta levar todos de uma só vez…', 110.60),
+('CALÇA NARUTO - AKATSUKI EVOLVED', 'Calça em tecido poliéster, com a icônica nuvem da akatsuki serigrafada, para você atuar nas sombras do mundo ninja. Uma forma um tanto quanto interessante de se destacar dos outros membros da organização, que só trajam aquele clássico manto. Se você não sabe jutsus, pelo menos tem um estilo autêntico, não?', 110.60),
+('CAMISETA ATTACK ON TITAN - TROPA DE EXPLORAÇÃO', 'Viver em um mundo ameaçador onde gigantes podem acabar com a sua vida. Esse é o pesadelo de quem vive atrás das muralhas. Mas você não vive esse horror, pois o mundo está livre para apreciar os lugares mais especiais com o estilo que você gosta. Essa camiseta em algodão, com estampa serigráfica irá fomentar em você uma das melhores sensações: liberdade!', 55.60),
+('CAMISETA NARUTO - BROTHERS DIVIDED', 'NARUTOOO!! SASUKEEE!! Chidori e Rasengan colidem. Um confronto épico e dramático no Vale do Fim, mas não o último. O laço entre dois irmãos, embora cruzem caminhos distintos, resiste ao tempo. Essa camiseta em tecido poliéster e estampa serigrafada de alta qualidade carrega a vontade do fogo para nunca desistir de quem amamos.', 55.60),
+('CAMISETA NARUTO - ITACHI TSUKUYOMI', 'Os olhos sinistros de Itachi submetem qualquer adversário, mas Sasuke não desistirá de encontrar seu irmão para perpetrar sua vingança. Se você, vestindo essa camiseta de tecido em algodão respirável e estampa serigráfica, trombar com ele, talvez respostas sejam exigidas… esteja preparado!', 55.60),
+('CAMISETA NARUTO - KAKASHI IN THE SHADOW', 'Camiseta serigrafada de tecido respirável em algodão que estrela um dos personagens mais táticos e icônicos do universo Naruto: Hatake Kakashi. O sexto Hokage, de certo, vai te agradecer quando te ver utilizando-a. Quem não gosta de ter fãs?', 55.60),
+('CAMISETA BREAKING BAD - LOS POLLOS HERMANOS', 'Olá, bem-vindo! Olhamos o seu perfil e gostamos de você. Que tal levar essa camiseta de tecido poliéster respirável e estampa serigráfica para atuar despercebidamente no restaurante enquanto ajuda Gus Fring a planejar um novo império de metanfetamina no México? Só não é para ficar doidão no seu turno, hein? Ele é um homem cuidadoso… ', 55.60),
+('CAMISETA BREAKING BAD - UNIVERSO PINK E CÉREBRO', 'Terra 212. Todas as noites, Heisenbrain, junto com seu assistente Pinkman, tentam dominar o mundo ao sedimentar, pouco a pouco, um império da metanfetamina em todas as nações. Será que eles vão conseguir? Camiseta serigrafada em tecido 100% algodão.', 55.60),
+('CANECA REI LEÃO - ALVORADA REAL', 'Sempre a partir do momento que o dia começa, Simba é abençoado com o aprendizado que seu pai, mãe e o ciclo da vida ao redor oferecem. Caneca de porcelana com estampa sublimática para você ficar ainda mais próximo no seu dia a dia desse grande clássico da Disney.', 60.25),
+('CANECA BREAKING BAD - SAY MY NAME', 'O laboratório de metanfetamina está a todo favor, a gente sabe. Mas isso não quer dizer que você não possa dar uma pausa para desfrutar de um delicioso café nessa caneca de porcelana com estampa sublimada. Vai por mim, não é porque você deu um break que eles vão parar de dizer o seu nome!', 60.25),
+('CAMISETA REI LEÃO - HAKUNA MATATA', 'Ao vestir essa camiseta de tecido poliéster, com serigrafia digital, os seus problemas sobre peças duráveis e confortáveis você deve esquecer. Durabilidade e conforto é viver. É aprender como a Clover faz! Hakuna Matata!!', 40.25),
+(' MOLETOM GAME OF THRONES - LOGO', 'A guerra pelo poder é constante, mas ela não pode deixar você esquecer dos pavores do inverno. Esse tecido de lã serigrafado, construído para reter o calor e impedir o frio de entrar, é o que você precisa para suportar um inverno visceral confortavelmente como um verdadeiro guerreiro.', 145.75),
+('MOLETOM GAME OF THRONES - DAENERYS DRAGONS ARMY', 'Quantos dragões são necessários para influenciar uma monarca a enlouquecer com o poder ainda mais? Basta apenas contar alguns dos muitos dragões nesse moletom de veludo serigrafado, belamente estampado.', 145.75),
+('MOLETOM SENHOR DOS ANÉIS - HOBBIT ESSENCE', 'O estilo de vida pacato e simples dos hobbits personificado nesse belo moletom tecido em pura lã, para te dar conforto e estilo no frio. Se Gandalf te solicitar uma jornada até Mordor, talvez seja melhor deixar pra lá, né? Sossego e tranquilidade é uma experiência que esse moletom visa reforçar.', 145.75),
+('CAMISETA SENHOR DOS ANÉIS - GONDOR TREE', 'A árvore que possui sete estrelas sobre ela. Cada estrela representa uma das casas de Elendil. O símbolo de Gondor é uma honra para um nobre, pois carregá-lo no peito torna mítico o seu papel na história. E como um nobre merece, esse tecido respirável serigrafado feito de algodão vai te dar o conforto e o estilo necessários para você se sentir uma lenda!', 65.75),
+('CAMISETA RICK & MORTY - PSICOSE EXTREMA', 'Tudo pode acontecer no universo de Rick & Morty. Algumas experiências podem ser bem estranhas e psicóticas…', 79.20),
+('CAMISETA RICK & MORTY - PAZ ENTRE OS MUNDOS', 'Se um dia uma civilização alienígena nos visitar (ou até mesmo se você visitá-los), ensine-os um gesto de saudação amistoso para mostrar que não se incomoda com a chegada dos novos inquilinos. Já sabe qual é? Você pode, inclusive, presenteá-los com essa camiseta em tecido poliéster e serigrafia de alta qualidade para sempre lembrá-los do valor de sua saudação.', 79.20),
+('CAMISETA KUNG FU PANDA - MARTIAL TRAINING', 'A hora do treino começa pela manhã. Assim como um panda, você precisa queimar umas calorias. Nada como essa camiseta totalmente em tecido algodão, respirável, para motivar você a ter um treino de qualidade!', 79.20),
+('CAMISETA KUNG FU PANDA - EMOTIONS OF PO', 'A psicologia é clara: pandas são como seres humanos. Ok, talvez a Clover tenha inventado isso… fato é que o Po, pelo o menos, é um panda muito parecido com você, e um amigo para todas as horas! Essa camiseta poliéster com serigrafia digital mostra que um panda pode se sentir como você se sente.', 79.20),
+('MOLETOM MARIO BROS. - IT’S YOU, MARIO!', 'Mario, em uma tentativa frustrada de salvar Peach, foi capturado por Bowser. Mas, antes, ele deixou para trás esse moletom, que a Clover encontrou. Queremos passar a tocha para você, e te transformar no herói que pode libertar Mario e Peach das garras de Bowser! Esse moletom serigrafado em tecido poliéster, super flexível e resistente, é perfeito para você adentrar dutos e enfrentar as mais diversas criaturas.', 100.20),
+('CAMISETA MARIO BROS. - ME LIKE A BOSS', 'O passado secreto de Mario o condena. Sua aliança com Bowser para controlar o crime em Mushroom World estampada nessa camiseta serigrafada, tecida em algodão. Só não deixe o bigodudo ciente de que você sabe demais…', 100.20); 
 
-
-
-SELECT * FROM tb_colecao;
-
- /*
- COLECAO
- '1', 'Blusas'
-'2', 'Camisetas'
-'3', 'Funkos'
-'4', 'Acessórios' 
- */
-
-SELECT * FROM tb_categoria;
-
-/*
-CATEGORIA 
-
-'1', 'Animes'
-'2', 'Desenhos'
-'3', 'Filmes'
-'4', 'Séries'
-'5', 'Jogos'
-*/
-
-SELECT * FROM tb_colecao_categoria;
-
-INSERT INTO tb_colecao_categoria (colecao_id, categoria_id) VALUES
-(1,1),
-(1,2),
-(1,3),
-(1,4),
-(1,5),
-(2,1),
-(2,2),
-(2,3),
-(2,4),
-(2,5),
-(3,1),
-(3,2),
-(3,3),
-(3,4),
-(3,5),
-(4,1),
-(4,2),
-(4,3),
-(4,4),
-(4,5);
-
-SELECT * FROM tb_categoria_subcategoria;
+INSERT INTO tb_colecao_categoria (colecao_id, categoria_id) VALUES 
+(1,1), (1,2), (1,3), (1,4), (1,5), 
+(2,1), (2,2), (2,3), (2,4), (2,5), 
+(3,1), (3,2), (3,3), (3,4), (3,5), 
+(4,1), (4,2), (4,3), (4,4), (4,5);
 
 INSERT INTO tb_categoria_subcategoria (colecao_id, categoria_id, subcategoria_id) VALUES
 
-(1,1,1),
-(2,1,1),
-(3,1,1),
-(4,1,1),
-
-(1,1,2),
-(2,1,2),
-(3,1,2),
-(4,1,2),
-
-(1,1,3),
-(2,1,3),
-(3,1,3),
-(4,1,3),
-
-(1,1,4),
-(2,1,4),
-(3,1,4),
-(4,1,4),
-
-(1,1,5),
-(2,1,5),
-(3,1,5),
-(4,1,5),
-
-(1, 2, 6),
-(2, 2, 6),
-(3, 2, 6),
-(4, 2, 6),
-
-(1, 2, 7),
-(2, 2, 7),
-(3, 2, 7),
-(4, 2, 7),
-
-(1, 2, 8),
-(2, 2, 8),
-(3, 2, 8),
-(4, 2, 8),
-
-(1, 2, 9),
-(2, 2, 9),
-(3, 2, 9),
-(4, 2, 9),
-
-(1, 3, 10),
-(2, 3, 10),
-(3, 3, 10),
-(4, 3, 10),
-
-(1, 3, 11),
-(2, 3, 11),
-(3, 3, 11),
-(4, 3, 11),
-
-(1, 3, 12),
-(2, 3, 12),
-(3, 3, 12),
-(4, 3, 12),
-
-(1, 3, 13),
-(2, 3, 13),
-(3, 3, 13),
-(4, 3, 13),
-
-(1, 4, 14),
-(2, 4, 14),
-(3, 4, 14),
-(4, 4, 14),
-
-(1, 4, 15),
-(2, 4, 15),
-(3, 4, 15),
-(4, 4, 15),
-
-(1, 4, 16),
-(2, 4, 16),
-(3, 4, 16),
-(4, 4, 16),
-
-(1, 4, 17),
-(2, 4, 17),
-(3, 4, 17),
-(4, 4, 17),
-
-(1, 4, 18),
-(2, 4, 18),
-(3, 4, 18),
-(4, 4, 18),
-
-(1, 5, 19),
-(2, 5, 19),
-(3, 5, 19),
-(4, 5, 19),
-
-(1, 5, 20),
-(2, 5, 20),
-(3, 5, 20),
-(4, 5, 20),
-
-(1, 5, 21),
-(2, 5, 21),
-(3, 5, 21),
-(4, 5, 21);
-
-
-/*
-COLECAO:
-
-Camiseta = 2
-Funko = 3
-
-CATEGORIA:
-
-Anime = 1
-
-SUBCATEGORIA: 
-
-One Piece = 1
-Naruto = 2
-*/
-
-SELECT * FROM tb_produto_subcategoria;
+(1,1,1), (1,1,2), (1,1,3), 
+(2,1,1), (2,1,2), (2,1,3), 
+(3,1,1), (3,1,2), (3,1,3), 
+(4,1,1), (4,1,2), (4,1,3), 
+(1,2,7), (1,2,8), (1,2,9), 
+(2,2,7), (2,2,8), (2,2,9), 
+(3,2,7), (3,2,8), (3,2,9), 
+(4,2,7), (4,2,8), (4,2,9), 
+(1,3,10), (1,3,11), (2,3,10), 
+(2,3,11), (3,3,10), (3,3,11), 
+(4,3,10), (4,3,11), (1,4,4), 
+(1,4,5), (1,4,6), (2,4,4), 
+(2,4,5), (2,4,6), (3,4,4), 
+(3,4,5), (3,4,6), (4,4,4), 
+(4,4,5), (4,4,6), (1,5,12), 
+(2,5,12), (3,5,12), (4,5,12);
 
 INSERT INTO tb_produto_subcategoria (colecao_id, categoria_id, subcategoria_id, produto_id) VALUES
-(2, 1, 1, 7),
-(2, 1, 2, 8),
-(2, 1, 2, 9),
-(2, 1, 2, 10),
+(1, 1, 1, 1),
+(1, 1, 2, 2),
+(3, 1, 2, 3),
+(1, 1, 2, 4),
+(1, 1, 3, 5),
+(2, 2, 7, 6),
+(1, 2, 7, 7),
+(3, 2, 9, 8),
+(3, 2, 9, 9),
+(3, 2, 9, 10),
+(3, 2, 9, 11),
+(1, 1, 1, 12),
+(1, 1, 1, 13),
+(1, 1, 1, 14),
+(1, 1, 1, 15),
+(1, 1, 2, 16),
+(2, 1, 2, 17),
+(2, 1, 2, 18),
+(1, 1, 3, 19),
+(1, 1, 2, 20),
+(1, 1, 2, 21),
+(1, 1, 2, 22),
+(1, 3, 10, 23),
+(1, 3, 10, 24),
+(4, 4, 4, 25),
+(4, 3, 10, 26),
+(1, 4, 4, 27),
+(3, 3, 11, 28),
+(3, 3, 11, 29),
+(3, 2, 8, 30),
+(1, 2, 8, 31),
+(1, 4, 5, 32),
+(1, 4, 5, 33),
+(1, 4, 6, 34),
+(1, 4, 6, 35),
+(3, 5, 12, 36),
+(1, 5, 12, 37);
 
-(3, 1, 1, 1),
-(3, 1, 1, 2),
-(3, 1, 1, 3),
-(3, 1, 1, 4),
-(3, 1, 1, 6),
-(3, 1, 2, 5);
+INSERT INTO tb_tamanho (produto_id, tamanho) VALUES 
+(1, 'P'), (1, 'M'), (1, 'G'), (1, 'GG'), (1, 'XG'), (1, 'XGG'),
+(2, 'P'), (2, 'M'), (2, 'G'),
+(3, 'P'), (3, 'M'), (3, 'G'), (3, 'GG'),
+(4, 'P'), (4, 'M'),
+(5, 'P'), (5, 'M'),
+(6, 'P'), (6, 'M'), (6, 'G'), (6, 'GG'), (6, 'XG'), (6, 'XGG'),
+(7, 'P'), (7, 'M'), (7, 'G'),
+(8, 'P'), (8, 'M'), (8, 'G'), (8, 'GG'),
+(9, 'P'), (9, 'M'), (9, 'G'), (9, 'GG'), 
+(10, 'P'), (10, 'M'), (10, 'G'), (10, 'GG'), 
+(11, 'P'), (11, 'M'), (11, 'G'), (11, 'GG'),
+(12, 'P'), (12, 'M'), (12, 'G'), (12, 'GG'), 
+(13, 'P'), (13, 'M'), (13, 'G'), (13, 'GG'), 
+(14, 'P'), (14, 'M'), (14, 'G'), (14, 'GG'), (14, 'XG'), (14, 'XGG'),
+(15, 'P'), (15, 'M'), (15, 'G'), (15, 'GG'), (15, 'XG'), (15, 'XGG'),
+(16, 'P'), (16, 'M'), (16, 'G'), (16, 'GG'), (16, 'XG'), (16, 'XGG'),
+(17, 'P'), (17, 'M'), (17, 'G'), (17, 'GG'), (17, 'XG'), 
+(18, 'P'), (18, 'M'), (18, 'G'), (18, 'GG'), (18, 'XG'), 
+(19, 'P'), (19, 'M'), (19, 'G'), (19, 'GG'), (19, 'XG'), 
+(20, 'P'), (20, 'M'), (20, 'G'), (20, 'GG'), (20, 'XG'),
+(21, 'P'), (21, 'M'), (21, 'G'), (21, 'GG'), (21, 'XG'), (21, 'XGG'),
+(22, 'P'), (22, 'M'), (22, 'G'), (22, 'GG'), (22, 'XG'), (22, 'XGG'),
+(23, 'P'), (23, 'M'), (23, 'G'),
+(24, 'P'), (24, 'M'), (24, 'G'), (24, 'GG'), (24, 'XG'), (24, 'XGG'),
+(25, 'DEFAULT'),
+(26, 'DEFAULT'),
+(27, 'P'), (27, 'M'), (27, 'G'), (27, 'GG'), (27, 'XG'), (27, 'XGG'),
+(28, 'P'), (28, 'M'), (28, 'G'), (28, 'GG'), (28, 'XG'), (28, 'XGG'),
+(29, 'P'), (29, 'M'), (29, 'G'), (29, 'GG'),
+(30, 'P'), (30, 'M'), (30, 'G'), (30, 'GG'), (30, 'XG'), (30, 'XGG'),
+(31, 'P'), (31, 'M'), (31, 'G'),
+(32, 'P'), (32, 'M'), (32, 'G'), (32, 'GG'), 
+(33, 'P'), (33, 'M'), (33, 'G'), (33, 'GG'), (33, 'XG'),
+(34, 'P'), (34, 'M'), (34, 'G'), (34, 'GG'), (34, 'XG'), (34, 'XGG'),
+(35, 'P'), (35, 'M'), (35, 'G'), (35, 'GG'), (35, 'XG'), 
+(36, 'P'), (36, 'M'), (36, 'G'), (36, 'GG'), (36, 'XG'), (36, 'XGG'),
+(37, 'P'), (37, 'M'), (37, 'G'), (37, 'GG'), (37, 'XG'), (37, 'XGG');
 
-select * from tb_produto;
-
--- 1 ao 6 : FUNKO
--- 7 ao 10: Camiseta
-
-INSERT INTO tb_tamanho VALUES
-(1, 'DEFAULT'),
-(2, 'DEFAULT'),
-(3, 'DEFAULT'),
-(4, 'DEFAULT'),
-(5, 'DEFAULT'),
-(6, 'DEFAULT'),
-
-(7, 'PP'),
-(7, 'P'),
-(7, 'M'),
-(7, 'G'),
-(7, 'GG'),
-
-(8, 'PP'),
-(8, 'P'),
-(8, 'M'),
-(8, 'G'),
-(8, 'GG'),
-
-(9, 'PP'),
-(9, 'P'),
-(9, 'M'),
-(9, 'G'),
-(9, 'GG'),
-
-(10, 'PP'),
-(10, 'P'),
-(10, 'M'),
-(10, 'G'),
-(10, 'GG');
-
-SELECT * FROM tb_tamanho;
-
-
-SELECT 
-tb_produto.* 
-FROM tb_produto 
-INNER JOIN tb_produto_subcategoria 
-ON tb_produto.id = tb_produto_subcategoria.produto_id 
-WHERE tb_produto_subcategoria.colecao_id = 2;
-
-
-
-
-INSERT INTO tb_cor VALUES
-('#2F4F4F', 'DarkSlateGray'),
-('#006400', 'DarkGreen'),
+INSERT INTO tb_cor (hexadecimal, nome) VALUES
+('#28064B', 'Dark Purple'),
 ('#000000', 'Black'),
-('#C0C0C0', 'Silver'),
-('#808080', 'Gray'),
-('#00008B', 'DarkBlue'),
-('#0000FF', 'Blue');
+('#D58E1A', 'Gold'),
+('#FF66B7', 'Pink'),
+('#6390EA', 'Sky Blue'),
+('#1358EE', 'Blue'),
+('#32C442', 'Green'),
+('#F7FA07', 'Yellow'),
+('#06760F', 'Dark Green'),
+('#FFFFFF', 'White'),
+('#011046', 'Navy Blue'),
+('#014606', 'Dark Green'),
+('#E4E4E4', 'Light Gray'),
+('#D8D6D6', 'Light Gray'),
+('#D60C0C', 'Red'),
+('#9E022F', 'Dark Red'),
+('#00045F', 'Dark Blue'),
+('#679F58', 'Olive Green'),
+('#C5C5C8', 'Light Gray'),
+('#DCD9D9', 'Light Gray'),
+('#FA3707', 'Orange'),
+('#E61919', 'Red');
 
-SELECT * FROM tb_cor;
+INSERT INTO tb_cor_produto VALUES 
+('#28064B', 1), ('#000000', 2), ('#D58E1A', 3),
+('#FF66B7', 4), ('#000000', 5), ('#6390EA', 6),
+('#000000', 7), ('#1358EE', 8), ('#32C442', 9),
+('#F7FA07', 10), ('#FA3707', 11), ('#FA3707', 12),
+('#06760F', 13), ('#000000', 14), ('#000000', 15),
+('#000000', 16), ('#FFFFFF', 16), ('#011046', 17), 
+('#000000', 18), ('#E4E4E4', 19), ('#000000', 19), 
+('#014606', 19), ('#000000', 20), ('#D8D6D6', 20),
+('#000000', 21), ('#D8D6D6', 21), ('#000000', 22),
+('#FFFFFF', 23), ('#D8D6D6', 23), ('#FFFFFF', 24),
+('#D8D6D6', 24), ('#D60C0C', 25), ('#FFFFFF', 26),
+('#000000', 26), ('#000000', 27), ('#9E022F', 27),
+('#9E022F', 28), ('#000000', 28), ('#00045F', 28),
+('#000000', 29), ('#679F58', 30), ('#C5C5C8', 31),
+('#000000', 31), ('#FFFFFF', 31), ('#000000', 32),
+('#C5C5C8', 33), ('#DCD9D9', 34), ('#FFFFFF', 34),
+('#DCD9D9', 35), ('#FFFFFF', 35), ('#E61919', 36),
+('#000000', 37);
 
-SELECT TABLE_NAME
-FROM INFORMATION_SCHEMA.TABLES
-WHERE TABLE_SCHEMA = 'CLOVER'
-AND TABLE_ROWS = 0;
-
-
-SELECT * FROM tb_cor_produto;
-
-INSERT INTO tb_cor_produto VALUES
-('#2F4F4F', 1),
-('#006400', 1),
-('#000000', 1),
-('#C0C0C0', 1),
-('#808080', 1),
-('#00008B', 1),
-('#0000FF', 1),
-
-('#2F4F4F', 2),
-('#006400', 2),
-('#000000', 2),
-('#C0C0C0', 2),
-('#808080', 2),
-('#00008B', 2),
-('#0000FF', 2),
-
-('#2F4F4F', 3),
-('#006400', 3),
-('#000000', 3),
-('#C0C0C0', 3),
-('#808080', 3),
-('#00008B', 3),
-('#0000FF', 3),
-
-('#2F4F4F', 4),
-('#006400', 4),
-('#000000', 4),
-('#C0C0C0', 4),
-('#808080', 4),
-('#00008B', 4),
-('#0000FF', 4),
-
-('#2F4F4F', 5),
-('#006400', 5),
-('#000000', 5),
-('#C0C0C0', 5),
-('#808080', 5),
-('#00008B', 5),
-('#0000FF', 5),
-
-('#2F4F4F', 6),
-('#006400', 6),
-('#000000', 6),
-('#C0C0C0', 6),
-('#808080', 6),
-('#00008B', 6),
-('#0000FF', 6),
-
-('#2F4F4F', 7),
-('#006400', 7),
-('#000000', 7),
-('#C0C0C0', 7),
-('#808080', 7),
-('#00008B', 7),
-('#0000FF', 7),
-
-('#2F4F4F', 8),
-('#006400', 8),
-('#000000', 8),
-('#C0C0C0', 8),
-('#808080', 8),
-('#00008B', 8),
-('#0000FF', 8),
-
-('#2F4F4F', 9),
-('#006400', 9),
-('#000000', 9),
-('#C0C0C0', 9),
-('#808080', 9),
-('#00008B', 9),
-('#0000FF', 9),
-
-('#2F4F4F', 10),
-('#006400', 10),
-('#000000', 10),
-('#C0C0C0', 10),
-('#808080', 10),
-('#00008B', 10),
-('#0000FF', 10);
-
-
-INSERT INTO tb_imagem VALUES
-('#2F4F4F', 10, 'https://clovers3-image.s3.amazonaws.com/1685989495209_luffy3.jpeg'),
-('#2F4F4F', 10, 'https://clovers3-image.s3.amazonaws.com/1685989494754_luffy2.jpeg'),
-('#2F4F4F', 10, 'https://clovers3-image.s3.amazonaws.com/1685989493436_luffy1.jpeg');
-
-SELECT cor_id as 'Hexadecimal', produto_id as 'ID do Produto', imagem as 'URL' FROM tb_imagem;
-
-
+INSERT INTO tb_imagem (cor_id, produto_id, imagem) VALUES
+('#28064B',	1,'https://clovers3-image.s3.amazonaws.com/1686535612194_162052-800-auto.jpg'),
+('#28064B',	1,'https://clovers3-image.s3.amazonaws.com/1686535610592_162051-800-auto.jpg'),
+('#000000',	2,'https://clovers3-image.s3.amazonaws.com/1686536335318_sasuke-back.jpg'),
+('#000000',	2,'https://clovers3-image.s3.amazonaws.com/1686536336493_sasuke-front.jpg'),
+('#D58E1A',	3,'https://clovers3-image.s3.amazonaws.com/1686536375551_02.jpg'),
+('#D58E1A',	3,'https://clovers3-image.s3.amazonaws.com/1686536374121_01.jpg'),
+('#FF66B7',	4,'https://clovers3-image.s3.amazonaws.com/1686536401227_159757-800-auto.jpg'),
+('#FF66B7',	4,'https://clovers3-image.s3.amazonaws.com/1686536402528_159758-800-auto.jpg'),
+('#000000',	5,'https://clovers3-image.s3.amazonaws.com/1686536443213_165518-800-auto.jpg'),
+('#000000',	5,'https://clovers3-image.s3.amazonaws.com/1686536444895_165520-800-auto.jpg'),
+('#000000',	5,'https://clovers3-image.s3.amazonaws.com/1686536444536_165519-800-auto.jpg'),
+('#6390EA',	6,'https://clovers3-image.s3.amazonaws.com/1686536481763_calca-moletom-star-wars-dois.jpg'),
+('#6390EA',	6,'https://clovers3-image.s3.amazonaws.com/1686536480653_calca-moletom-star-wars.jpg'),
+('#000000',	7,'https://clovers3-image.s3.amazonaws.com/1686536531737_camiseta-dupla-face-star-wars-dois.jpg'),
+('#000000',	7,'https://clovers3-image.s3.amazonaws.com/1686536533609_camiseta-star-wars.jpg'),
+('#000000',	7,'https://clovers3-image.s3.amazonaws.com/1686536533050_camiseta-dupla-face-star-wars-tres.jpg'),
+('#1358EE',	8,'https://clovers3-image.s3.amazonaws.com/1686536583223_jaqueta-jeans-corvinal.jpg'),
+('#1358EE',	8,'https://clovers3-image.s3.amazonaws.com/1686536584910_jaqueta-jeans-corvinal-tres.jpg'),
+('#1358EE',	8,'https://clovers3-image.s3.amazonaws.com/1686536584569_jaqueta-jeans-corvinal-dois.jpg'),
+('#32C442',	9,'https://clovers3-image.s3.amazonaws.com/1686536625518_jaqueta-jeans-sonserina-dois.jpg'),
+('#32C442',	9,'https://clovers3-image.s3.amazonaws.com/1686536626003_jaqueta-jeans-sonserina-tres.jpg'),
+('#32C442',	9,'https://clovers3-image.s3.amazonaws.com/1686536624172_jaqueta-jeans-sonserina.jpg'),
+('#F7FA07',	10,	'https://clovers3-image.s3.amazonaws.com/1686536652109_jaqueta-jeans-lufa-lufa-tres.jpg'),
+('#F7FA07',	10,	'https://clovers3-image.s3.amazonaws.com/1686536651754_jaqueta-jeans-lufa-lufa-dois.jpg'),
+('#F7FA07',	10,	'https://clovers3-image.s3.amazonaws.com/1686536650463_jaqueta-jeans-lufa-lufa.jpg'),
+('#FA3707',	11,	'https://clovers3-image.s3.amazonaws.com/1686536728762_jaqueta-jeans-grifinoria-dois.jpg'),
+('#FA3707',	11,	'https://clovers3-image.s3.amazonaws.com/1686536702574_jaqueta-jeans-grifinoria.jpg'),
+('#FA3707',	11,	'https://clovers3-image.s3.amazonaws.com/1686536729342_jaqueta-jeans-grifinoria-tres.jpg'),
+('#FA3707',	12,	'https://clovers3-image.s3.amazonaws.com/1686536784761_one-piece-chopper-tres.jpg'),
+('#FA3707',	12,	'https://clovers3-image.s3.amazonaws.com/1686536782734_one-piece-chopper.jpg'),
+('#FA3707',	12,	'https://clovers3-image.s3.amazonaws.com/1686536784118_one-piece-chopper-dois.jpg'),
+('#06760F',	13,	'https://clovers3-image.s3.amazonaws.com/1686536819501_one-piece-zoro.jpg'),
+('#06760F',	13,	'https://clovers3-image.s3.amazonaws.com/1686536832041_one-piece-zoro-dois.jpg'),
+('#000000',	14,	'https://clovers3-image.s3.amazonaws.com/1686536895699_one-piece-grupo-tres.jpg'),
+('#000000',	14,	'https://clovers3-image.s3.amazonaws.com/1686536894818_one-piece-grupo-dois.jpg'),
+('#000000',	14,	'https://clovers3-image.s3.amazonaws.com/1686536893298_one-piece-grupo.jpg'),
+('#000000',	15,	'https://clovers3-image.s3.amazonaws.com/1686536990594_one-piece-irmaos.jpg'),
+('#000000',	15,	'https://clovers3-image.s3.amazonaws.com/1686536992791_one-piece-irmaos-dois.jpg'),
+('#000000',	15,	'https://clovers3-image.s3.amazonaws.com/1686536992242_one-piece-irmaos-cinco.jpg'),
+('#000000',	16,	'https://clovers3-image.s3.amazonaws.com/1686537067329_camiseta-ninetails-1.jpg'),
+('#000000',	16,	'https://clovers3-image.s3.amazonaws.com/1686537074023_camiseta-ninetails-2.jpg'),
+('#FFFFFF',	16,	'https://clovers3-image.s3.amazonaws.com/1686537108312_camiseta-ninetails-3.jpg'),
+('#FFFFFF',	16,	'https://clovers3-image.s3.amazonaws.com/1686537109471_camiseta-ninetails-4.jpg'),
+('#011046',	17,	'https://clovers3-image.s3.amazonaws.com/1686537139675_cal%C3%A7a-bijuu-2.jpg'),
+('#011046',	17,	'https://clovers3-image.s3.amazonaws.com/1686537138408_cal%C3%A7a-bijuu-1.jpg'),
+('#000000',	18,	'https://clovers3-image.s3.amazonaws.com/1686537177383_akatsuki-cal%C3%A7a.jpg'),
+('#000000',	18,	'https://clovers3-image.s3.amazonaws.com/1686537178561_akatsuki-cal%C3%A7a2.jpg'),
+('#000000',	18,	'https://clovers3-image.s3.amazonaws.com/1686537179216_akatsuki-cal%C3%A7a3.jpg'),
+('#000000',	19,	'https://clovers3-image.s3.amazonaws.com/1686537229660_camiseta-tropa-exploracao-5.jpg'),
+('#000000',	19,	'https://clovers3-image.s3.amazonaws.com/1686537231103_camiseta-tropa-exploracao-6.jpg'),
+('#014606',	19,	'https://clovers3-image.s3.amazonaws.com/1686537256077_camiseta-tropa-exploracao-3.jpg'),
+('#014606',	19,	'https://clovers3-image.s3.amazonaws.com/1686537257432_camiseta-tropa-exploracao-4.jpg'),
+('#E4E4E4',	19,	'https://clovers3-image.s3.amazonaws.com/1686537286974_camiseta-tropa-exploracao-2.jpg'),
+('#E4E4E4',	19,	'https://clovers3-image.s3.amazonaws.com/1686537285749_camiseta-tropa-exploracao-1.jpg'),
+('#000000',	20,	'https://clovers3-image.s3.amazonaws.com/1686537361943_camiseta-naruto-vs-sasuke-1.jpg'),
+('#000000',	20,	'https://clovers3-image.s3.amazonaws.com/1686537363101_camiseta-naruto-vs-sasuke-4.jpg'),
+('#D8D6D6',	20,	'https://clovers3-image.s3.amazonaws.com/1686537384327_camiseta-naruto-vs-sasuke-2.jpg'),
+('#D8D6D6',	20,	'https://clovers3-image.s3.amazonaws.com/1686537386239_camiseta-naruto-vs-sasuke-5%20-%20Copia.jpg'),
+('#000000',	21,	'https://clovers3-image.s3.amazonaws.com/1686537433030_camiseta-itachi-tsukuyomi.jpg'),
+('#000000',	21,	'https://clovers3-image.s3.amazonaws.com/1686537434436_camiseta-itachi-tsukuyomi-3.jpg'),
+('#D8D6D6',	21,	'https://clovers3-image.s3.amazonaws.com/1686537474321_camiseta-itachi-tsukuyomi-4.jpg'),
+('#D8D6D6',	21,	'https://clovers3-image.s3.amazonaws.com/1686537472973_camiseta-itachi-tsukuyomi-2.jpg'),
+('#000000',	22,	'https://clovers3-image.s3.amazonaws.com/1686537504959_camiseta-kakashi-2.jpg'),
+('#000000',	22,	'https://clovers3-image.s3.amazonaws.com/1686537503819_camiseta-kakashi-1.jpg'),
+('#FFFFFF',	23,	'https://clovers3-image.s3.amazonaws.com/1686537538341_camiseta-los-pollos-hermanos-2.jpg'),
+('#FFFFFF',	23,	'https://clovers3-image.s3.amazonaws.com/1686537539601_camiseta-los-polos-hermanos-4.jpg'),
+('#D8D6D6',	23,	'https://clovers3-image.s3.amazonaws.com/1686537565982_camiseta-los-pollos-hermanos.jpg'),
+('#D8D6D6',	23,	'https://clovers3-image.s3.amazonaws.com/1686537567269_camiseta-los-pollos-herrmanos-3%20-%20Copia.jpg'),
+('#FFFFFF',	24,	'https://clovers3-image.s3.amazonaws.com/1686537620369_D_NQ_NP_2X_705392-MLB43183332578_082020-F.jpg'),
+('#FFFFFF',	24,	'https://clovers3-image.s3.amazonaws.com/1686537618878_D_NQ_NP_2X_640288-MLB43183338059_082020-F.jpg'),
+('#D8D6D6',	24,	'https://clovers3-image.s3.amazonaws.com/1686537648783_D_NQ_NP_2X_703321-MLB43796477077_102020-F.jpg'),
+('#D8D6D6',	24,	'https://clovers3-image.s3.amazonaws.com/1686537647537_D_NQ_NP_2X_675723-MLB43796470691_102020-F.jpg'),
+('#D60C0C',	25,	'https://clovers3-image.s3.amazonaws.com/1686537683731_caneca-rei-le%C3%A3o-1.jpg'),
+('#D60C0C',	25,	'https://clovers3-image.s3.amazonaws.com/1686537684961_caneca-rei-le%C3%A3o-2.jpg'),
+('#D60C0C',	25,	'https://clovers3-image.s3.amazonaws.com/1686537685479_caneca-rei-le%C3%A3o-3.jpg'),
+('#FFFFFF',	26,	'https://clovers3-image.s3.amazonaws.com/1686537714364_caneca-breaking-bad-say-my-name-2.jpg'),
+('#000000',	26,	'https://clovers3-image.s3.amazonaws.com/1686537730606_caneca-breaking-bad-say-my-name-1.jpg'),
+('#000000',	27,	'https://clovers3-image.s3.amazonaws.com/1686537770819_camiseta-hakuna-matata-4.jpg'),
+('#000000',	27,	'https://clovers3-image.s3.amazonaws.com/1686537772058_camiseta-hakuna-matata-5.jpg'),
+('#000000',	27,	'https://clovers3-image.s3.amazonaws.com/1686537772441_camiseta-hakuna-matata-6.jpg'),
+('#9E022F',	27,	'https://clovers3-image.s3.amazonaws.com/1686537801569_camiseta-hakuna-matata-3.jpg'),
+('#9E022F',	27,	'https://clovers3-image.s3.amazonaws.com/1686537801172_camiseta-hakuna-matata-2.jpg'),
+('#9E022F',	27,	'https://clovers3-image.s3.amazonaws.com/1686537799927_camiseta-hakuna-matata-1.jpg'),
+('#9E022F',	28,	'https://clovers3-image.s3.amazonaws.com/1686537835553_got-moletom-1.jpg'),
+('#000000',	28,	'https://clovers3-image.s3.amazonaws.com/1686537851836_got-moletom-2.jpg'),
+('#00045F',	28,	'https://clovers3-image.s3.amazonaws.com/1686537869426_got-moletom-3.jpg'),
+('#000000',	29,	'https://clovers3-image.s3.amazonaws.com/1686537899984_got-dragons-2.jpg'),
+('#000000',	29,	'https://clovers3-image.s3.amazonaws.com/1686537898797_got-dragons-1.jpg'),
+('#679F58',	30,	'https://clovers3-image.s3.amazonaws.com/1686537960281_lotr-moletom-1.jpg'),
+('#679F58',	30,	'https://clovers3-image.s3.amazonaws.com/1686537961408_lotr-moletom-2.jpg'),
+('#679F58',	30,	'https://clovers3-image.s3.amazonaws.com/1686537961970_lotr-moletom-3.jpg'),
+('#C5C5C8',	31,	'https://clovers3-image.s3.amazonaws.com/1686537999916_lotr-gondor-1.jpg'),
+('#000000',	31,	'https://clovers3-image.s3.amazonaws.com/1686538014825_lotr-gondor-2.jpg'),
+('#FFFFFF',	31,	'https://clovers3-image.s3.amazonaws.com/1686538028991_lotr-gondor-3.jpg'),
+('#000000',	32,	'https://clovers3-image.s3.amazonaws.com/1686538159371_rick-morty-psicose-1.jpg'),
+('#000000',	32,	'https://clovers3-image.s3.amazonaws.com/1686538162762_rick-morty-psicose-2.jpg'),
+('#000000',	32,	'https://clovers3-image.s3.amazonaws.com/1686538163483_rick-morty-psicose-3.jpg'),
+('#C5C5C8',	33,	'https://clovers3-image.s3.amazonaws.com/1686538225616_ricky-morty-pem-3.jpg'),
+('#C5C5C8',	33,	'https://clovers3-image.s3.amazonaws.com/1686538223963_ricky-morty-pem-1.jpg'),
+('#C5C5C8',	33,	'https://clovers3-image.s3.amazonaws.com/1686538225083_ricky-morty-pem-2.jpg'),
+('#DCD9D9',	34,	'https://clovers3-image.s3.amazonaws.com/1686538254578_kfp-martial-training-2.jpg'),
+('#FFFFFF',	34,	'https://clovers3-image.s3.amazonaws.com/1686538269653_kfp-martial-training-1.jpg'),
+('#FFFFFF',	35,	'https://clovers3-image.s3.amazonaws.com/1686538286441_kfp-emotions-of-poo-2.jpg'),
+('#DCD9D9',	35,	'https://clovers3-image.s3.amazonaws.com/1686538303477_kfp-emotions-of-poo.jpg'),
+('#E61919',	36,	'https://clovers3-image.s3.amazonaws.com/1686538327944_moletom-logo-mario.jpg'),
+('#E61919',	36,	'https://clovers3-image.s3.amazonaws.com/1686538329119_moletom-logo-mario-2.jpg'),
+('#000000',	37,	'https://clovers3-image.s3.amazonaws.com/1686538352062_mario-like-a-boss.jpg'),
+('#000000',	37,	'https://clovers3-image.s3.amazonaws.com/1686538353573_mario-like-a-boss-2.jpg');
